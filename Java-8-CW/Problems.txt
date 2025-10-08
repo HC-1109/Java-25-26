@@ -1,0 +1,14 @@
+Make sure to test each function by invoking(calling) it in the init() function
+
+Problem 1:
+Write a function madlib() where the function takes in three strings: a noun, an adjective and a verb and returns a string made up of the adjective, noun and verb. 
+For example: adjective = "loud", noun = "person" and verb = "runs".
+The function returns the string "The loud person runs".
+
+
+Problem 2:
+Write a function that calculates and returns the area of a square. What parameter(s) does it need?
+
+
+Problem 3:
+Write a function that calculates and returns the area of a circle. What parameter(s) does it need?
