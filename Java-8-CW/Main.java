@@ -3,28 +3,23 @@ class Main {
     (new Main()).init();
   }
   // define the functions
-String madlib(String noun)
+void madlib(String noun, String adj, String verb){
+  System.out.println("The "+adj+" "+noun+" "+verb);
+}
 
 double areaSq(double side){
-  double area = side*side;
-  return area;
+  return side*side;
 }
 
 double areaSph(double radius){
-  double areaC = Math.pow(radius, 2) * Math.pi;
-  return areaC;
+  return Math.PI*Math.pow(radius, 2);
 }
 
     // call the functions
 
 
-double result = areaSq(2.5);
-System.out.println("Area is "+result);
+void init(){
+  madlib("1", "2", "3");
 
-System.out.println("Area is "+areaC);
-
-  }
-
- 
-  
+}
 }
