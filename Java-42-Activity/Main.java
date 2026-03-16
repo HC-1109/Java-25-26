@@ -32,7 +32,7 @@ class Main {
 
     // Challenge 2:
     // Remove course “ZQCTEDA” for student with id STUDENT1200 
-    sql = "DELETE From cr101 WHERE studentid='STUDENT1200' AND course='ZQCTEDA'";
+    sql = "DELETE FROM cr101 WHERE studentid='STUDENT1200' AND course='ZQCTEDA'";
     db.runSQL(sql);
 
     // Challenge 3:
