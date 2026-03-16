@@ -42,7 +42,7 @@ class Main {
     
     // Challenge 4:
     // Mr. ROFFLER will be replacing Mr. ARCHETTI for course “MQF44QGF” section 1. Update all records to reflect this change.
-    sql = "UPDATE cr101 SET teacher1 = 'ARCHETTI' WHERE teacher1='ROFFLER' AND course='MQF44QGF' AND section=1";
+    sql = "UPDATE cr101 SET teacher1 = 'ROFFLER' WHERE teacher1='ARCHETTI' AND course='MQF44QGF' AND section=1";
     db.runSQL(sql);
     
     // Challenge 5:
