@@ -47,7 +47,7 @@ class Main {
     
     // Challenge 5:
     // Change the grade for STUDENT999 to 11 and the students offcclass to a junior status.
-    sql = "UPDATE cr101 SET grade = '11', offclass = '3C8' WHERE studentid='STUDENT999'";
+    sql = "UPDATE cr101 SET grade = 11, offclass = '3C8' WHERE studentid='STUDENT999'";
     db.runSQL(sql);
     
     // Challenge 6:
