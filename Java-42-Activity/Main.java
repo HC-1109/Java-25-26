@@ -27,7 +27,7 @@ class Main {
     
     // Challenge 1:
     // For student with ID of STUDENT1001, change room to 122 for period 3 class.
-    sql = "Update cr101 SET room = 122 WHERE studentid = 'STUDENT1001' AND period=3";
+    sql = "UPDATE cr101 SET room = 122 WHERE studentid = 'STUDENT1001' AND period=3";
     db.runSQL(sql);
 
     // Challenge 2:
