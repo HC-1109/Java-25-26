@@ -36,19 +36,24 @@ class Main {
     // For all problems below, limit query to about 5 records and only pull up required fields (columns)    
 
       // Problem 1: Create a default route that serves the message: "You are connected, but route not given or incorrect....";
-
+      server.createContext("/", new RouteHandler("You are connected, but route not given or incorrect...."));
     
       // Problem 2: Create a route called 'customers' that gets the First name, Last name and Phone# for the first 5 entries of the Customers table.
-
+      String sql = "";
+      sql  = "SELECT customers.customerId, customers.firstname, customers.lastname, customers.phone FROM Customers";
+      server.createContext("/customers", new RouteHandler(db,sql));
     
       // Problem 3: Create a route called 'employees' that gets Employee ID and Title of the first 5 entries in the Employees table.
-
+      sql  = "SELECT * FROM employees ";
+      server.createContext("/employees", new RouteHandler(db,sql) ) ;
     
       // Problem 4: Create a route called 'albumsinfo' that gets the albums with the track information and artists information. (Limit to 5 records)
-
+      sql  = "SELECT * FROM tracks INNER JOIN albums ON albums.albumid=tracks.albumid INNER JOIN artists ON albums.artistid=artists.artistid";
+      server.createContext("/albumsinfo", new RouteHandler(db,sql) );
     
       // Problem 5: Create a route called 'customersongs' that gets customer first & last names, song names and date of purchase (i.e., Invoice Date) of each song. (Limit to 5 records)
-
+      sql  = "SELECT customers.firstname, customers.lastname, tracks.name, invoices.invoicedate FROM tracks INNER JOIN invoice_items ON invoice_items.trackid=tracks.trackid INNER JOIN invoices ON invoices.invoiceid=invoice_items.invoiceid INNER JOIN customers ON invoices.customerid=customers.customerid";
+      server.createContext("/customersongs", new RouteHandler(db,sql) );
     
 
     // Start the server      
