@@ -1,7 +1,7 @@
 let data, info; // global variables
 
 async function init(){  
-  let link = "";// Insert your Dev URL from Activity 47. The activity (DB server) must be running in a separate tab.
+  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev/";// Insert your Dev URL from Activity 47. The activity (DB server) must be running in a separate tab.
   let route= "";
 
   /*
@@ -14,10 +14,17 @@ async function init(){
   
   
   // Problem 2: Write the JS code in the function init() and get the employee's table from your server as an array of JSON.
-
+  info = await fetch(link+route)
+  data = await info.json()
+  let employees = data;
   
   // Problem 3: For each employee, display their first name, last name and birthdate to the console.
-
+  for(let i = 0; i < employees.length; i++){
+    let employee = employees[i];
+    console.log(employee.FirstName);
+    console.log(employee.LastName);
+    console.log(employee.BirthDate);
+  }
   
 
 }
