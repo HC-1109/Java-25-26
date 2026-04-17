@@ -29,7 +29,7 @@ function generateCards(employees){
                 <h6> Employee ID: ${employee.EmployeeId}</h6>
                 <p> ${employee.FirstName}, ${employee.LastName}</p>
               </div>`;
-
+  }
   // Problem 2: Add CSS Styling to style the info cards.
     
 
