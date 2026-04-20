@@ -49,7 +49,6 @@ class Main {
     */
 
     // Add your code here.....see Problem.txt file for tasks
-
     String sql = "SELECT tracks.Name, tracks.Composer, albums.Title FROM tracks INNER JOIN albums ON albums.albumid=tracks.albumid LIMIT 100";
     server.createContext("/songs", new RouteHandler(db,sql) );
 
