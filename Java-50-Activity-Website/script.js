@@ -21,7 +21,6 @@ async function init(){
 // b) Write a function that accepts an array of JSON that contains song information, generates an info card for each track(song) with song name, album title and composer. Display the cards on a webpage. (see "WebPagePicture.PNG" to determine the types of HTML elements to use).
 function generateCards(songs){
   // import the output div and initialize the 'build' variable
-  function generateCards(songs){
   let output = document.getElementById("output");
   let build ="";
 
@@ -37,11 +36,11 @@ function generateCards(songs){
              `<h2> ${song.Composer}</h2>`;
              `<hr>`;
              `</div>`;
-
+  }
+  
   // Inject the build content into the output container
   output.innerHTML = build;
 }
 
 // c) Add CSS rules to make the output div a flex container and provide appropriate styling for the card. (see picture "WebPagePicture.PNG").
-
 
