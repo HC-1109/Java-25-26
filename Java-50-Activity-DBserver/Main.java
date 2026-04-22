@@ -49,8 +49,18 @@ class Main {
     */
 
     // Add your code here.....see Problem.txt file for tasks
-    String sql = "SELECT tracks.Name, tracks.Composer, albums.Title FROM tracks INNER JOIN albums ON albums.albumid=tracks.albumid LIMIT 100";
-    server.createContext("/songs", new RouteHandler(db,sql) );
+    String sql = "";
+    sql = "SELECT * FROM customers;";
+    server.createContext("/customers", new RouteHandler(db, sql));
+
+    sql = "SELECT * FROM employees;";
+    server.createContext("/employees", new RouteHandler(db, sql));
+
+    sql = "SELECT tracks.name, tracks.composer, albums.title FROM tracks INNER JOIN albums ON tracks.albumid = albums.albumid LIMIT 100;";
+    server.createContext("/albumsinfo", new RouteHandler(db, sql));
+
+    sql = "SELECT customers.firstname, customers.lastname, tracks.name, invoices.invoicedate FROM tracks, invoice_items, invoices, customers WHERE customers.customerid=invoices.customerid AND invoices.invoiceid=invoice_items.invoiceid AND tracks.trackid=invoice_items.trackid;";
+    server.createContext("/songs", new RouteHandler(db, sql));
 
   
     // Start the server      
@@ -59,5 +69,3 @@ class Main {
       
   }    
 }
-
-
