@@ -38,7 +38,8 @@ class Main {
     // Create the database object
     Database db = new Database("jdbc:sqlite:chinook.db");
     
-    // Default route    
+    // Default route
+    // Problem 1
     server.createContext("/", new RouteHandler("You are connected, but route not given or incorrect....") );
 
     /* GOAL: To create a webpage that will display a card for each track(song) in the 'tracks' table from the Chinook database. (See picture "chinookDBdiagram.JPG").
@@ -49,19 +50,22 @@ class Main {
     */
 
     // Add your code here.....see Problem.txt file for tasks
+    // Problem 2
     String sql = "";
     sql = "SELECT * FROM customers;";
     server.createContext("/customers", new RouteHandler(db, sql));
 
+    // Problem 3
     sql = "SELECT * FROM employees;";
     server.createContext("/employees", new RouteHandler(db, sql));
 
+    // Problem 4
     sql = "SELECT tracks.name, tracks.composer, albums.title FROM tracks INNER JOIN albums ON tracks.albumid = albums.albumid LIMIT 100;";
     server.createContext("/albumsinfo", new RouteHandler(db, sql));
 
+    // Problem 5
     sql = "SELECT customers.firstname, customers.lastname, tracks.name, invoices.invoicedate FROM tracks, invoice_items, invoices, customers WHERE customers.customerid=invoices.customerid AND invoices.invoiceid=invoice_items.invoiceid AND tracks.trackid=invoice_items.trackid;";
     server.createContext("/songs", new RouteHandler(db, sql));
-
   
     // Start the server      
     server.start();
