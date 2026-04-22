@@ -25,15 +25,15 @@ function generateCards(songs){
   let build ="";
 
   // create a for loop to traverse the array
-  for(let i=0; i<songs.length; i++){
+  for(let i = 0; i < songs.length; i++){
     let song = songs[i];
-    build += `<div class="card" >`;
-             `<h3> Song Name </h3>`;
-             `<p> ${song.Name}</p>`;
-             `<div> Album </div>`;
-             `<h2> ${song.Title} </h2>`;
-             `<div> Composer </div>`;
-             `<h2> ${song.Composer}</h2>`;
+    build += `<div class = "card" >`;
+             `<h3>Song Name</h3>`;
+             `<p>${song.Name}</p>`;
+             `<div>Album</div>`;
+             `<h2>${song.Title}</h2>`;
+             `<div>Composer</div>`;
+             `<h2>${song.Composer}</h2>`;
              `<hr>`;
              `</div>`;
   }
