@@ -46,8 +46,19 @@ function generateCards(songs){
   for songs by song name, album title or composer name. Then
   generate the cards using the generateCards() function provided.
 */
-
-
+function filter1(){
+  let track = document.getElementById("songname").value;
+  let title = document.getElementById("title1").value;
+  let composer = document.getElementById("composer1").value;
+  let newSongs = [];
+  for(let i=0; i<songs.length;i++){
+    let song = songs[i];
+    if(song.Name == track || song.Title == title || song.Composer == composer) {
+      newSongs.push(song);
+    }
+  }
+  generateCards(newSongs);
+}
 
 /*
   Challenge 2:
@@ -55,3 +66,15 @@ function generateCards(songs){
   for songs by album title AND composer name. Then
   generate the cards using the generateCards() function provided.
 */
+function filter2(){
+  let title = document.getElementById("title2").value;
+  let composer = document.getElementById("composer2").value;
+  let newSongs = [];
+  for(let i=0; i<songs.length;i++){
+    let song = songs[i]
+    if( song.Title == title && song.Composer == composer) {
+      newSongs.push(song);
+    }
+  }
+  generateCards(newSongs);
+}
