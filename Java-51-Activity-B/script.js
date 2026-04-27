@@ -53,7 +53,7 @@ function filter1(){
   let newSongs = [];
   for(let i=0; i<songs.length;i++){
     let song = songs[i];
-    if(song.Name == track || song.Title == title || song.Composer == composer) {
+    if(song.Name == track || song.Title == title || song.Composer == composer){
       newSongs.push(song);
     }
   }
@@ -72,7 +72,7 @@ function filter2(){
   let newSongs = [];
   for(let i=0; i<songs.length;i++){
     let song = songs[i]
-    if( song.Title == title && song.Composer == composer) {
+    if( song.Title == title && song.Composer == composer){
       newSongs.push(song);
     }
   }
