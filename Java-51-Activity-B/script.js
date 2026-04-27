@@ -22,7 +22,7 @@ function generateCards(songs){
   //Update number of songs found
   count.innerHTML=`Number of songs found: ${songs.length}`;
   
-  for(let i=0; i<songs.length; i++){
+  for(let i = 0; i < songs.length; i++){
     let song = songs[i];
 
     build += `<div class="card" >`
@@ -51,7 +51,7 @@ function filter1(){
   let title = document.getElementById("title1").value;
   let composer = document.getElementById("composer1").value;
   let newSongs = [];
-  for(let i=0; i<songs.length;i++){
+  for(let i = 0; i < songs.length; i++){
     let song = songs[i];
     if(song.Name == track || song.Title == title || song.Composer == composer){
       newSongs.push(song);
@@ -70,9 +70,9 @@ function filter2(){
   let title = document.getElementById("title2").value;
   let composer = document.getElementById("composer2").value;
   let newSongs = [];
-  for(let i=0; i<songs.length;i++){
+  for(let i = 0; i < songs.length; i++){
     let song = songs[i]
-    if( song.Title == title && song.Composer == composer){
+    if(song.Title == title && song.Composer == composer){
       newSongs.push(song);
     }
   }
