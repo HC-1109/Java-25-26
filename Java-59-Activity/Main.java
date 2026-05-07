@@ -36,23 +36,23 @@ class Main {
     HttpServer server = HttpServer.create(new InetSocketAddress(port),0);
 
     // Create the database object
-    Database db = new Database("jdbc:sqlite:chinook.db");
+    Database db = new Database("jdbc:sqlite:Library.db");
     
     // Create a route handler to respond to the request (default route)
     server.createContext("/", new RouteHandler("Default route...") );
 
     // create a route called 'customers' that gets all customer records.
     String sql = "";
-    sql  = "SELECT * FROM customers";
-    server.createContext("/customers", new RouteHandler(db,sql) );
+    sql  = "SELECT * FROM Members";
+    server.createContext("/Members", new RouteHandler(db,sql) );
 
     // Create a route called 'employees' that gets all employee records.
-    sql  = "SELECT * FROM employees";
-    server.createContext("/employees", new RouteHandler(db,sql) ) ;
+    sql  = "SELECT * FROM Librarians";
+    server.createContext("/librarians", new RouteHandler(db,sql) ) ;
         
     // Create a route called 'songs' that gets track(song) records. Limit to 200 records.
-    sql  = "SELECT tracks.name, albums.title, tracks.composer FROM tracks INNER JOIN albums ON albums.albumid=tracks.albumid LIMIT 200";    
-    server.createContext("/songs", new RouteHandler(db,sql) ) ;
+    sql  = "SELECT * FROM Books";    
+    server.createContext("/books", new RouteHandler(db,sql) ) ;
 
 
     // Start the server      
