@@ -41,16 +41,13 @@ class Main {
     // Create a route handler to respond to the request (default route)
     server.createContext("/", new RouteHandler("Default route..."));
 
-    // create a route called 'customers' that gets all customer records.
     String sql = "";
     sql = "SELECT * FROM members";
     server.createContext("/members", new RouteHandler(db,sql));
 
-    // Create a route called 'employees' that gets all employee records.
     sql = "SELECT * FROM librarians";
     server.createContext("/librarians", new RouteHandler(db,sql)) ;
         
-    // Create a route called 'songs' that gets track(song) records. Limit to 200 records.
     sql = "SELECT * FROM books";    
     server.createContext("/books", new RouteHandler(db,sql)) ;
 
