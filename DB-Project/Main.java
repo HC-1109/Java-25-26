@@ -42,17 +42,15 @@ class Main {
     server.createContext("/", new RouteHandler("Default route..."));
 
     String sql = "";
-    sql  = "SELECT * FROM Books";
-    server.createContext("/books", new RouteHandler(db,sql));
+    sql  = "SELECT * FROM Goods";
+    server.createContext("/goods", new RouteHandler(db,sql));
 
-    sql  = "SELECT * FROM BorrowedBooks";
-    server.createContext("/borrowed", new RouteHandler(db,sql)) ;
+    sql  = "SELECT * FROM Customers";
+    server.createContext("/customers", new RouteHandler(db,sql)) ;
         
-    sql  = "SELECT * FROM Librarians";    
-    server.createContext("/staff", new RouteHandler(db,sql)) ;
+    sql  = "SELECT * FROM Employees";    
+    server.createContext("/employees", new RouteHandler(db,sql)) ;
 
-    sql  = "SELECT * FROM Members";    
-    server.createContext("/members", new RouteHandler(db,sql)) ;
 
     // Start the server      
     server.start();
