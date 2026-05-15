@@ -46,10 +46,10 @@ class Main {
     server.createContext("/goods", new RouteHandler(db,sql));
 
     sql  = "SELECT * FROM Customers";
-    server.createContext("/customers", new RouteHandler(db,sql)) ;
+    server.createContext("/customers", new RouteHandler(db,sql));
         
     sql  = "SELECT * FROM Employees";    
-    server.createContext("/employees", new RouteHandler(db,sql)) ;
+    server.createContext("/employees", new RouteHandler(db,sql));
 
 
     // Start the server      
