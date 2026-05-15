@@ -36,7 +36,7 @@ class Main {
     HttpServer server = HttpServer.create(new InetSocketAddress(port),0);
 
     // Create the database object
-    Database db = new Database("jdbc:sqlite:Library.db");
+    Database db = new Database("jdbc:sqlite:GroceryStore.db");
     
     // Create a route handler to respond to the request (default route)
     server.createContext("/", new RouteHandler("Default route..."));
