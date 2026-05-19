@@ -31,17 +31,15 @@ function generateCards(goods){
 }
 
 function filter(){
-  let name = document.getElementById("songname").value;
+  let name = document.getElementById("goodname").value;
 
-  let newSongs = []; //create a list of songs searched for
+  let newGoods = [];
   
-  for(let i=0; i<songs.length;i++){
-    let song = songs[i] //get each sog
-    //make sure the list is no
-    if( song.Name == name ) {
-          //add to the new list
-          newSongs.push(song);
+  for(let i=0; i<goods.length;i++){
+    let good = goods[i]
+    if( good.Name == name ) {
+          newGOods.push(good);
        }
   }
-  generateCards(newSongs);  
+  generateCards(newGoods);  
 }
