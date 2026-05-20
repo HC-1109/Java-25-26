@@ -38,7 +38,7 @@ function filter(){
   for(let i=0; i<goods.length;i++){
     let good = goods[i]
     if( good.Name == name ) {
-          newGOods.push(good);
+          newGoods.push(good);
        }
   }
   generateCards(newGoods);  
