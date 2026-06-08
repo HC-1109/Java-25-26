@@ -1,7 +1,7 @@
-let songs, info;
+let goods, info;
 
 async function init(){
-  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev/"; //replace with your Dev URL
+  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev"; //replace with your Dev URL
   let route= "/goods";
 
   info = await fetch(link+route);
@@ -17,12 +17,12 @@ function generateCards(goods){
   for(let i=0; i<goods.length; i++){
     let good = goods[i];
     build += `<div class="card" >`
-    build += `<h3> Product </h3>`;
+    build += `<h3> Product Name </h3>`;
     build += `<p> ${good.Name}</p>`;
-    build += `<div> Price </div>`;
-    build += `<div2> ${good.Price} </div2>`;
     build += `<div> Expiration Date </div>`;
-    build += `<div2> ${good.ExpirationDate}</div2>`;
+    build += `<div2> ${good.ExpirationDate} </div2>`;
+    build += `<div> Image </div>`;
+    build += `<div2> ${good.Image}</div2>`;
     build += `<hr>`;
     build += `</div>`;
   }
@@ -31,15 +31,15 @@ function generateCards(goods){
 }
 
 function filter(){
-  let name = document.getElementById("goodname").value;
+  let name = document.getElementById("customername").value;
 
-  let newGoods = [];
+  let newCustomers = [];
   
-  for(let i=0; i<goods.length;i++){
-    let good = goods[i]
-    if( good.Name == name ) {
-          newGoods.push(good);
+  for(let i=0; i<customers.length;i++){
+    let customer = customers[i]
+    if( customer.FirstName == name ) {
+          newCustomers.push(customer);
        }
   }
-  generateCards(newGoods);  
+  generateCards(newCustomers);  
 }
