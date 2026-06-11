@@ -11,7 +11,7 @@ function generateCards(items){
   let html = "";
   for(let i = 0; i < items.length; i++){
     let person = items[i];
-    let img = person["Image ID"] || "https://via.placeholder.com/200?text=No+Image";
+    let img = person["Image ID"] || "";
     let fullName = person.CustomerFirstName + " " + person.CustomerLastName;
     html += "<div class='card'>";
     html += "<div class='cardImage'><img src='" + img + "' alt='" + fullName + "'></div>";

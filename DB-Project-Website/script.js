@@ -27,7 +27,7 @@ function displaySaleItems(){
   
   for(let i = 0; i < randomProducts.length; i++){
     let item = randomProducts[i];
-    let img = item["Image ID"] || "https://via.placeholder.com/200?text=No+Image";
+    let img = item["Image ID"] || "";
     html += "<div class='card'>";
     html += "<div class='cardImage'><img src='" + img + "' alt='" + item.Name + "'></div>";
     html += "<div class='cardContent'>";
