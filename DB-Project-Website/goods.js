@@ -16,7 +16,7 @@ function generateCards(items){
     html += "<div class='cardImage'><img src='" + img + "' alt='" + item.Name + "'></div>";
     html += "<div class='cardContent'>";
     html += "<h3 class='cardTitle'>" + item.Name + "</h3>";
-    html += "<p class='cardInfo'><strong>Exp:</strong> " + item.ExpirationDate + "</p>";
+    html += "<p class='cardInfo'><strong>Expiration Date:</strong> " + item.ExpirationDate + "</p>";
     html += "</div></div>";
   }
   
