@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!-- Create a website layout that has two pages: a HOME page and a SONGS page. 
-Structure your Home page based on the picture file HomePage.png and your Songs page like SongsPage.png. 
-Be sure to include the city flags (see the "cities" folder).
-You may choose the content in your info cards -->
 
 <html>
   <head>
     <title>Grocery Store</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="script.js"></script>
+    <script src="goods.js"></script>
   </head>
   
   <body onload="init()">
@@ -18,8 +14,7 @@ You may choose the content in your info cards -->
       </div>
       
       <div class='searchpanel'>
-          Navbar
-          <input style = "flex:2; text-align:right;" type = "text" id = "city" placeholder = "Enter Product">      
+          <input style = "flex:2; text-align:right;" type = "text" id = "customername" placeholder = "Enter Product Name">      
           <a class = "button" onclick="filter()">Search</a>
       </div>
 
@@ -38,13 +33,13 @@ You may choose the content in your info cards -->
           </div>
         </nav>
         
-        <div id='mainpanel' class="container">
-          Main content
+        <div id='mainpanel' class="cardContainer">
+          Loading products...
         </div>
       </div>
 
       <div id='footer'>
-        <h3> Footer </h3>
+        <h3> Grocery Store website by Elena & Haotian </h3>
       </div>
 
     </div>

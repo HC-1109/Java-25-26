@@ -1,45 +1,43 @@
-let employees, info;
+let employees = [];
 
 async function init(){
-  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev"; //replace with your Dev URL
-  let route= "/employees";
-
-  info = await fetch(link+route);
-  employees = await info.json();
-
+  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev";
+  let response = await fetch(link + "/employees");
+  employees = await response.json();
   generateCards(employees);
 }
 
-function generateCards(employees){  
-  let output = document.getElementById("centerpanel");
-  let build ="";
-  
-  for(let i=0; i<employees.length; i++){
-    let employee = employees[i];
-    build += `<div class="card" >`
-    build += `<h3> Employee First Name </h3>`;
-    build += `<p> ${employee.FirstName}</p>`;
-    build += `<div> Employee Last Name</div>`;
-    build += `<div2> ${employee.LastName} </div2>`;
-    build += `<div> ID </div>`;
-    build += `<div2> ${employee.IdImage}</div2>`;
-    build += `<hr>`;
-    build += `</div>`;
+function generateCards(items){
+  let html = "";
+  for(let i = 0; i < items.length; i++){
+    let person = items[i];
+    let img = person["Image ID"] || "https://via.placeholder.com/200?text=No+Image";
+    let fullName = person.EmployeeFirstName + " " + person.EmployeeLastName;
+    html += "<div class='card'>";
+    html += "<div class='cardImage'><img src='" + img + "' alt='" + fullName + "'></div>";
+    html += "<div class='cardContent'>";
+    html += "<h3 class='cardTitle'>" + fullName + "</h3>";
+    html += "<p class='cardInfo'><strong>Name:</strong> " + fullName + "</p>";
+    html += "</div></div>";
   }
-  // Now inject the build content into the output container
-  output.innerHTML = build;
+  
+  if(items.length === 0) {
+    html = "<p style='text-align: center; padding: 20px; width: 100%;'>No employees found</p>";
+  }
+  
+  document.getElementById("mainpanel").innerHTML = html;
 }
 
 function filter(){
-  let name = document.getElementById("customername").value;
-
-  let newCustomers = [];
+  let searchTerm = document.getElementById("customername").value.toLowerCase();
+  let results = [];
   
-  for(let i=0; i<customers.length;i++){
-    let customer = customers[i]
-    if( customer.FirstName == name ) {
-          newCustomers.push(customer);
-       }
+  for(let i = 0; i < employees.length; i++){
+    let emp = employees[i];
+    let fullName = (emp.EmployeeFirstName + " " + emp.EmployeeLastName).toLowerCase();
+    if(fullName.includes(searchTerm)) {
+      results.push(emp);
+    }
   }
-  generateCards(newCustomers);  
+  generateCards(results);
 }

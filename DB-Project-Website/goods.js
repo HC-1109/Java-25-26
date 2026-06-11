@@ -1,45 +1,40 @@
-let goods, info;
+let goods = [];
 
 async function init(){
-  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev"; //replace with your Dev URL
-  let route= "/goods";
-
-  info = await fetch(link+route);
-  goods = await info.json();
-
+  let link = "https://legendary-disco-g4r45r5vqxj4f97wx-8500.app.github.dev";
+  let response = await fetch(link + "/goods");
+  goods = await response.json();
   generateCards(goods);
 }
 
-function generateCards(goods){  
-  let output = document.getElementById("centerpanel");
-  let build ="";
-  
-  for(let i=0; i<goods.length; i++){
-    let good = goods[i];
-    build += `<div class="card" >`
-    build += `<h3> Product Name </h3>`;
-    build += `<p> ${good.Name}</p>`;
-    build += `<div> Expiration Date </div>`;
-    build += `<div2> ${good.ExpirationDate} </div2>`;
-    build += `<div> Image </div>`;
-    build += `<div2> ${good.Image}</div2>`;
-    build += `<hr>`;
-    build += `</div>`;
+function generateCards(items){
+  let html = "";
+  for(let i = 0; i < items.length; i++){
+    let item = items[i];
+    let img = item["Image ID"] || "https://via.placeholder.com/200?text=No+Image";
+    html += "<div class='card'>";
+    html += "<div class='cardImage'><img src='" + img + "' alt='" + item.Name + "'></div>";
+    html += "<div class='cardContent'>";
+    html += "<h3 class='cardTitle'>" + item.Name + "</h3>";
+    html += "<p class='cardInfo'><strong>Exp:</strong> " + item.ExpirationDate + "</p>";
+    html += "</div></div>";
   }
-  // Now inject the build content into the output container
-  output.innerHTML = build;
+  
+  if(items.length === 0) {
+    html = "<p style='text-align: center; padding: 20px; width: 100%;'>No products found</p>";
+  }
+  
+  document.getElementById("mainpanel").innerHTML = html;
 }
 
 function filter(){
-  let name = document.getElementById("customername").value;
-
-  let newCustomers = [];
+  let searchTerm = document.getElementById("customername").value.toLowerCase();
+  let results = [];
   
-  for(let i=0; i<customers.length;i++){
-    let customer = customers[i]
-    if( customer.FirstName == name ) {
-          newCustomers.push(customer);
-       }
+  for(let i = 0; i < goods.length; i++){
+    if(goods[i].Name.toLowerCase().includes(searchTerm)) {
+      results.push(goods[i]);
+    }
   }
-  generateCards(newCustomers);  
+  generateCards(results);
 }
