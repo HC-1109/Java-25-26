@@ -17,7 +17,9 @@ function generateCards(items){
     html += "<div class='cardImage'><img src='" + img + "' alt='" + fullName + "'></div>";
     html += "<div class='cardContent'>";
     html += "<h3 class='cardTitle'>" + fullName + "</h3>";
-    html += "<p class='cardInfo'><strong>Name:</strong> " + fullName + "</p>";
+    html += "<p class='cardInfo'><strong>ID:</strong> " + person.EmployeeId + "</p>";
+    html += "<p class='cardInfo'><strong>First:</strong> " + person.EmployeeFirstName + "</p>";
+    html += "<p class='cardInfo'><strong>Last:</strong> " + person.EmployeeLastName + "</p>";
     html += "</div></div>";
   }
   
